@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:39:00 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 18:17:40 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 19:05:47 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,8 @@ void	listsize(t_Node *stacka, t_Node *stackb)
 
 	tmp = stacka;
 	count = 0;
-	while (tmp != NULL)
-	{
-		count++;
+	while (tmp != NULL && ++count)
 		tmp = tmp -> next;
-	}
 	tmp = stacka;
 	while (tmp != NULL)
 	{
@@ -99,11 +96,8 @@ void	listsize(t_Node *stacka, t_Node *stackb)
 	}
 	tmp = stackb;
 	count = 0;
-	while (tmp != NULL)
-	{
-		count++;
+	while (tmp != NULL && ++count)
 		tmp = tmp ->next;
-	}
 	tmp = stackb;
 	while (tmp != NULL)
 	{

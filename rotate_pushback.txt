@@ -1,0 +1,51 @@
+#include "list.h"
+
+static void	locate_max(t_Node *tmp, int position)
+{
+	while (tmp != NULL)
+	{
+		if (tmp -> data == tmp ->bmax)
+			break ;
+		position++;
+		tmp = tmp ->next;
+	}
+}
+
+static void	rotate_max(t_Node **stackb, int position)
+{
+	int	i;
+
+	i = 1;
+	while (i < position)
+	{
+		rotate(stackb);
+		ft_printf("rb\n");
+		i++;
+	}
+}
+
+void	rotate_pushback(t_Node **stacka, t_Node **stackb)
+{
+	t_Node	*tmp;
+	int		position;
+	int		i;
+
+	position = 1;
+	tmp = (*stackb);
+	i = 1;
+	listsize((*stacka), (*stackb));
+	largestnsmallest((*stackb));
+	locate_max(tmp, position);
+	tmp = (*stackb);
+	if (position <= (tmp ->stackb_size + 1) / 2)
+		rotate_max(stackb, position);
+	else
+	{
+		while (position <= tmp ->stackb_size)
+		{
+			reverse_rotate(stackb);
+			ft_printf("rrb\n");
+			position++;
+		}
+	}
+}
