@@ -6,13 +6,13 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:33:00 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/14 14:20:38 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:57:49 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-t_list	*lastnode(t_Node *list)
+t_Node	*lastnode(t_Node *list)
 {
 	t_Node	*tmp;
 
@@ -38,7 +38,7 @@ t_Node	*add_front(t_Node **node, int value)
 {
 	t_Node	*newnode;
 
-	newnode = createNode(value);
+	newnode = create_node(value);
 	newnode -> next = *node;
 	*node = newnode;
 	return (*node);
@@ -50,8 +50,8 @@ t_Node	*add_back(t_Node *list, int val)
 	t_Node	*tmp;
 
 	if (list == NULL)
-		return (createNode(val));
-	newnode = createNode(val);
+		return (create_node(val));
+	newnode = create_node(val);
 	tmp = list;
 	while (tmp ->next != NULL)
 		tmp = tmp ->next;

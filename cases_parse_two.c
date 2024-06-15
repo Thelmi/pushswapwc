@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:34:18 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 15:35:28 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:44 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	isdouble(t_Node *list)
 		{
 			if (list -> data == tmp -> data)
 			{
-				printf("error\n");
+				ft_printf("error\n");
 				freelist(store);
 				exit(1);
 			}

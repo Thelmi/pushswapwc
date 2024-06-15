@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:59:17 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 17:40:07 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:44 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 						break ;
 					}
 					double_rotate(stacka, stackb);
-					printf("rr\n");
+					ft_printf("rr\n");
 					move_countb--;
 				}
 				while (move_count > 0)
@@ -62,7 +62,7 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 					if ((*stacka)->target == (*stacka)->data)
 						break ;
 					rotate(stacka);
-					printf("ra\n");
+					ft_printf("ra\n");
 					move_count--;
 				}
 			}
@@ -71,7 +71,7 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 				while (((*stacka)-> positiona) > 1 && move_counta > 0)
 				{
 					double_rotate(stacka, stackb);
-					printf("rr\n");
+					ft_printf("rr\n");
 					move_counta--;
 				}
 				while (move_count > 0 && (((*stackb)-> positionb == 1
@@ -86,7 +86,7 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 								&& (*stacka)->data < (*stackb)->last))))
 				{
 					rotate(stackb);
-					printf("rb\n");
+					ft_printf("rb\n");
 					move_count--;
 				}
 			}
@@ -97,13 +97,13 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 			while ((*stacka)-> positiona > 1 && move_counta > 0)
 			{
 				rotate(stacka);
-				printf("ra\n");
+				ft_printf("ra\n");
 				move_counta--;
 			}
 			while (move_rcountb > 0)
 			{
 				reverse_rotate(stackb);
-				printf("rrb\n");
+				ft_printf("rrb\n");
 				move_rcountb--;
 			}
 		}
@@ -113,14 +113,14 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 			while ((*stacka)-> positiona > 1 && move_rcounta > 0)
 			{
 				reverse_rotate(stacka);
-				printf("rra\n");
+				ft_printf("rra\n");
 				move_rcounta--;
 			}
 			while (move_countb > 0 && !((*stacka)->target > (*stackb)->first
 					&& (*stacka)->data < (*stackb)->last))
 			{
 				rotate(stackb);
-				printf("rb\n");
+				ft_printf("rb\n");
 				move_countb--;
 			}
 		}
@@ -134,13 +134,13 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 				while (move_rcountb > 0)
 				{
 					double_reverse_rotate(stacka, stackb);
-					printf("rrr\n");
+					ft_printf("rrr\n");
 					move_rcountb--;
 				}
 				while (move_rcount > 0)
 				{
 					reverse_rotate(stacka);
-					printf("rra\n");
+					ft_printf("rra\n");
 					move_rcount--;
 				}
 			}
@@ -149,18 +149,18 @@ void	makemoves(t_Node **stacka, t_Node **stackb)
 				while (move_rcounta > 0)
 				{
 					double_reverse_rotate(stacka, stackb);
-					printf("rrr\n");
+					ft_printf("rrr\n");
 					move_rcounta--;
 				}
 				while (move_rcount > 0)
 				{
 					reverse_rotate(stackb);
-					printf("rrb\n");
+					ft_printf("rrb\n");
 					move_rcount--;
 				}
 			}
 		}
 	}
 	push(stacka, stackb);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

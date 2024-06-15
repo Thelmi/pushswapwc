@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:36 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/14 14:09:36 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:45 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	double_swap(t_Node *listA, t_Node *listB)
 {
 	swap(listA);
 	swap(listB);
-	printf("ss\n");
+	ft_printf("ss\n");
 }
 
 void	push(t_Node **listA, t_Node **listB)

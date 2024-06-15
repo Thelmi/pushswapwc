@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:34:58 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/14 15:39:04 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:59:43 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	reverse_rotate(t_Node **list)
 	t_Node	*last;
 
 	tmp = *list;
-	last = lastt_node(*list);
+	last = lastnode(*list);
 	while (tmp->next->next != NULL)
 		tmp = tmp -> next;
 	tmp -> next = NULL;

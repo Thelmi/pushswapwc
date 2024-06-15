@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 16:13:04 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 16:33:36 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:45 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	sort_five(t_Node **stacka, t_Node **stackb)
 		while ((positiona - 1) > 0)
 		{
 			rotate(stacka);
-			printf("ra\n");
+			ft_printf("ra\n");
 			positiona--;
 		}
 		push(stacka, stackb);
-		printf("pb\n");
+		ft_printf("pb\n");
 	}
 	else
 	{
@@ -38,10 +38,10 @@ void	sort_five(t_Node **stacka, t_Node **stackb)
 		while (positiona > 0)
 		{
 			reverse_rotate(stacka);
-			printf("rra\n");
+			ft_printf("rra\n");
 			positiona--;
 		}
 		push(stacka, stackb);
-		printf("pb\n");
+		ft_printf("pb\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 16:02:00 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 17:09:01 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 17:53:44 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rotate_pushback(t_Node **stacka, t_Node **stackb)
 		while (i < position)
 		{
 			rotate(stackb);
-			printf("rb\n");
+			ft_printf("rb\n");
 			i++;
 		}
 	}
@@ -45,7 +45,7 @@ void	rotate_pushback(t_Node **stacka, t_Node **stackb)
 		while (position <= tmp ->stackb_size)
 		{
 			reverse_rotate(stackb);
-			printf("rrb\n");
+			ft_printf("rrb\n");
 			position++;
 		}
 	}

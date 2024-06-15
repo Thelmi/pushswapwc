@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:54 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 16:22:36 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/15 18:38:38 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_Node	*is_valid(int ac, char **av)
 					{
 						if (!is_integer(splitted[j]))
 						{
-							printf("error");
+							ft_printf("error");
 							exit(0);
 						}
 						j++;
@@ -88,7 +88,7 @@ t_Node	*is_valid(int ac, char **av)
 		}
 		else
 		{
-			printf("error\n");
+			ft_printf("error\n");
 			freelist(head);
 			exit(1);
 		}

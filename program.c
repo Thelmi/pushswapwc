@@ -26,14 +26,12 @@ int	main(int ac, char **av)
 	if (stacka -> stacka_size == 2)
 	{
 		swap(stacka);
-		printf("sa\n");
-		printlist(stacka);
+		ft_printf("sa\n");
 		return (0);
 	}
 	if (stacka -> stacka_size == 3)
 	{
 		sort_three(&stacka);
-		printlist(stacka);
 		return (0);
 	}
 	else if (stacka -> stacka_size == 4)
@@ -42,8 +40,7 @@ int	main(int ac, char **av)
 		if (!isascending(stacka))
 			sort_three(&stacka);
 		push(&stackb, &stacka);
-		printf("pa\n");
-		printlist(stacka);
+		ft_printf("pa\n");
 		return (0);
 	}
 	else if (stacka -> stacka_size == 5)
@@ -53,33 +50,32 @@ int	main(int ac, char **av)
 		if (stackb -> data < stackb -> next -> data)
 		{
 			swap(stackb);
-			printf("sa\n");
+			ft_printf("sa\n");
 		}
 		if (!isascending(stacka))
 			sort_three(&stacka);
 		push(&stackb, &stacka);
 		push(&stackb, &stacka);
-		printf("pa\n");
-		printf("pa\n");
-		printlist(stacka);
+		ft_printf("pa\n");
+		ft_printf("pa\n");
 		return (0);
 	}
 	push(&stacka, &stackb);
-	printf("pa\n");
+	ft_printf("pa\n");
 	push(&stacka, &stackb);
-	printf("pb\n");
+	ft_printf("pb\n");
 	mixer(&stacka, &stackb);
 	while (stackb)
 	{
 		push(&stackb, &stacka);
-		printf("pa\n");
+		ft_printf("pa\n");
 	}
 	tmp = stacka;
 	while (tmp -> next != NULL)
 	{
 		if (tmp -> data > tmp -> next-> data)
 		{
-			printf("alert.....................\n");
+			ft_printf("alert.....................\n");
 			break ;
 		}
 		tmp = tmp -> next;
