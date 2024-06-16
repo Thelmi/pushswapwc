@@ -10,12 +10,12 @@ SRC = cases_parse_one.c cases_parse_two.c isvalid.c list_helpers.c makemoves.c m
 
 OBJ := $(SRC:.c=.o)
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -fsanitize=address -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(LIBFT) $(PRINTF) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF)  -o $(NAME)
 
 $(LIBFT):
 	make -C ./libft

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   isvalid.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:54 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 18:38:38 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/16 04:29:55 by mrhelmy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,15 @@ t_Node	*is_valid(int ac, char **av)
 						if (!is_integer(splitted[j]))
 						{
 							ft_printf("error");
-							exit(0);
+							j = 0;
+							while (splitted[j])
+							{
+								free(splitted[j]);
+								j++;
+							}
+							free(splitted);
+							freelist(head);
+							exit(1);
 						}
 						j++;
 					}

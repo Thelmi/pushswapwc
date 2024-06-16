@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cases_parse_one.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:06:42 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 17:02:35 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/16 03:02:32 by mrhelmy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	t_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] || (unsigned char)c == '\0')
+	while (s[i])
 	{
 		if ((unsigned char)c == (unsigned char)s[i])
 			return (1);
