@@ -6,7 +6,7 @@ PRINTF := ./ft_printf/libftprintf.a
 
 SRC = cases_parse_one.c cases_parse_two.c isvalid.c list_helpers.c makemoves.c moves.c program.c \
 	  rotate_pushback.c rotation.c sort_five.c sort_three.c sorting_helpers.c sorting_helpers_two.c \
-	  target.c \
+	  target.c rrmakemoves.c \
 
 OBJ := $(SRC:.c=.o)
 
@@ -15,7 +15,7 @@ CFLAGS	= -fsanitize=address -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(LIBFT):
 	make -C ./libft

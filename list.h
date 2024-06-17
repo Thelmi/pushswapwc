@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 13:52:55 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 16:23:56 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/17 22:30:29 by mrhelmy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ typedef struct list
 	int			target;
 	struct list	*next;
 }	t_Node;
+
+typedef struct moves
+{
+	int	move_counta;
+	int	move_countb;
+	int	move_count;
+	int	move_rcounta;
+	int	move_rcountb;
+	int	move_rcount;
+}	t_moves;
 
 t_Node	*is_valid(int ac, char **av);
 t_Node	*create_node(int value);
@@ -70,4 +80,13 @@ void	mixer(t_Node **stacka, t_Node **stackb);
 void	smallest_position(t_Node *stacka);
 void	sort_five(t_Node **stacka, t_Node **stackb);
 int		isascending(t_Node *list);
+void	rotatea_reverseb(int move_counta, int move_rcountb,
+			t_Node **stacka, t_Node **stackb);
+void	rotateb_reversea(int move_rcounta, int move_countb,
+			t_Node **stacka, t_Node **stackb);
+void	reverse_rotate_both_1(int move_rcountb, int move_rcount,
+			t_Node **stacka, t_Node **stackb);
+void	reverse_rotate_both_2(int move_rcounta, int move_rcount,
+			t_Node **stacka, t_Node **stackb);
+void	reverse_rotate_both_0(t_moves moves, t_Node **stacka, t_Node **stackb);	
 #endif
