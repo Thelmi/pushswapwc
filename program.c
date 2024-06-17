@@ -80,6 +80,9 @@ void	sort_all_big(t_Node *stacka, t_Node *stackb)
 		ft_printf("pa\n");
 	}
 	tmp = stacka;
+// note: if line 111 does not result in leaks keep it and remove 33, 41, 51, and 61
+// otherwise, keep lines 33, 41, 51, and 61 (freelist(stacka); //), you can remove line 113 (// freelist(stacka);).
+// note: do not forget to remove lines 86-94
 	while (tmp -> next != NULL) // delete
 	{
 		if (tmp -> data > tmp -> next-> data)
@@ -106,7 +109,7 @@ int	main(int ac, char **av)
 	}
 	listsize(stacka, stackb);
 	if (sort_small(stacka, stackb) == 0)
-	{   
+	{
 		// freelist(stacka);
 		return (0);
 	}

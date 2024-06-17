@@ -6,26 +6,108 @@
 /*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:54 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/16 04:29:55 by mrhelmy          ###   ########.fr       */
+/*   Updated: 2024/06/18 02:40:04 by mrhelmy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
 
-t_Node	*is_valid(int ac, char **av)
+void	bye(t_Node **stack)
+{
+	ft_printf("error\n");
+	freelist(*stack);
+	exit(1);
+}
+
+void	integer_assign(t_Node **stack, t_Node **tmp, char*str)
+{
+	t_Node	*nextnode;
+
+	if (is_integer(str))
+	{
+		if (!*stack)
+		{
+			*stack = create_node(t_atoi(str));
+			*tmp = *stack;
+		}
+		else
+		{
+			nextnode = create_node(t_atoi(str));
+			(*tmp)-> next = nextnode;
+			*tmp = nextnode;
+		}
+	}
+	else
+	{
+		ft_printf("error\n");
+		if (*stack)
+			freelist(*stack);
+		exit(1);
+	}
+}
+
+void	split_assign(t_Node **stack, char **splitted, t_Node **tmp)
+{
+	t_Node	*nextnode;
+	int		i;
+
+	nextnode = NULL;
+	i = 0;
+	if (!*stack)
+	{
+		*stack = create_node(t_atoi(splitted[0]));
+		*tmp = *stack;
+		i = 1;
+	}
+	while (splitted[i])
+	{
+		nextnode = create_node(t_atoi(splitted[i]));
+		(*tmp)-> next = nextnode;
+		(*tmp) = (*tmp)-> next;
+		i++;
+	}
+	i = 0;
+	while (splitted[i])
+		free(splitted[i++]);
+	free(splitted);
+}
+
+void	split_cheaker(char *str, t_Node **stack, t_Node **tmp)
 {
 	int		i;
 	char	**splitted;
-	int		checked;
+
+	i = 0;
+	splitted = ft_split(str, ' ');
+	while (splitted[i])
+	{
+		if (!is_integer(splitted[i]))
+		{
+			ft_printf("error\n");
+			i = 0;
+			while (splitted[i])
+			{
+				free(splitted[i]);
+				i++;
+			}
+			free(splitted);
+			freelist((*stack));
+			exit(1);
+		}
+		i++;
+	}
+	split_assign(stack, splitted, tmp);
+}
+
+t_Node	*is_valid(int ac, char **av)
+{
+	int		i;
 	t_Node	*head;
 	t_Node	*tmp;
-	t_Node	*nextnode;
-	int		j;
 
 	i = 1;
-	checked = 1;
 	head = NULL;
-	j = 0;
+	tmp = NULL;
 	if (ac <= 1)
 		exit(1);
 	while (i < ac)
@@ -33,73 +115,12 @@ t_Node	*is_valid(int ac, char **av)
 		if (t_defence(av[i]) && isnot_term(av[i]))
 		{
 			if (t_strchr(av[i], ' '))
-			{
-				splitted = ft_split(av[i], ' ');
-				if (checked)
-				{
-					while (splitted[j] && checked)
-					{
-						if (!is_integer(splitted[j]))
-						{
-							ft_printf("error");
-							j = 0;
-							while (splitted[j])
-							{
-								free(splitted[j]);
-								j++;
-							}
-							free(splitted);
-							freelist(head);
-							exit(1);
-						}
-						j++;
-					}
-					checked = 0;
-				}
-				j = 0;
-				if (!head)
-				{
-					head = create_node(t_atoi(splitted[0]));
-					tmp = head;
-					j = 1;
-				}
-				while (splitted[j])
-				{
-					nextnode = create_node(t_atoi(splitted[j]));
-					tmp -> next = nextnode;
-					tmp = tmp -> next;
-					j++;
-				}
-				j = 0;
-				while (splitted[j])
-				{
-					free(splitted[j]);
-					j++;
-				}
-				free(splitted);
-				j = 0;
-			}
+				split_cheaker(av[i], &head, &tmp);
 			else
-			{
-				if (!head)
-				{
-					head = create_node(t_atoi(av[i]));
-					tmp = head;
-				}
-				else
-				{
-					nextnode = create_node(t_atoi(av[i]));
-					tmp -> next = nextnode;
-					tmp = nextnode;
-				}
-			}
+				integer_assign(&head, &tmp, av[i]);
 		}
 		else
-		{
-			ft_printf("error\n");
-			freelist(head);
-			exit(1);
-		}
+			bye(&head);
 		i++;
 	}
 	isdouble(head);

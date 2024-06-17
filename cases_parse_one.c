@@ -6,7 +6,7 @@
 /*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:06:42 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/16 03:02:32 by mrhelmy          ###   ########.fr       */
+/*   Updated: 2024/06/18 01:29:47 by mrhelmy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	t_strchr(const char *s, int c)
 
 int	is_integer(char *str)
 {
-	if (ft_strlen(str) > 2 && (t_atoi(str) == 0 || t_atoi(str) == -1))
+	if (ft_strlen(str) > 2 && (t_atoi(str) == 0 || t_atoi(str) == -1))// || t_strchr(str, '"'))
 		return (0);
 	return (1);
 }
