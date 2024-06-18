@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cases_parse_two.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:34:18 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/16 03:34:05 by mrhelmy          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:57:59 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	isdouble(t_Node *list)
 		{
 			if (list -> data == tmp -> data)
 			{
-				ft_printf("error\n");
+				write (2, "Error\n", 6);
 				freelist(store);
 				exit(1);
 			}

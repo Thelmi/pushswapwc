@@ -6,7 +6,7 @@
 /*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 16:07:29 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/15 19:26:10 by thelmy           ###   ########.fr       */
+/*   Updated: 2024/06/18 15:42:43 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	sort_three(t_Node **stackA)
 		&& (*stackA)-> data > (*stackA)-> next -> next -> data)
 	{
 		reverse_rotate(stackA);
-		ft_printf("rr\n");
+		ft_printf("rra\n");
 	}
 	else
 		sort_three_part2(stackA);

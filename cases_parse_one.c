@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cases_parse_one.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:06:42 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/18 01:29:47 by mrhelmy          ###   ########.fr       */
+/*   Updated: 2024/06/18 17:53:12 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	t_strchr(const char *s, int c)
 
 int	is_integer(char *str)
 {
-	if (ft_strlen(str) > 2 && (t_atoi(str) == 0 || t_atoi(str) == -1))// || t_strchr(str, '"'))
+	if (ft_strlen(str) > 2 && (t_atoi(str) == 0
+			|| t_atoi(str) == -1))
 		return (0);
 	return (1);
 }

@@ -12,6 +12,16 @@
 
 #include "list.h"
 
+static void	only_four(t_Node *stacka, t_Node *stackb)
+{
+	sort_five(&stacka, &stackb);
+	if (!isascending(stacka))
+		sort_three(&stacka);
+	push(&stackb, &stacka);
+	ft_printf("pa\n");
+	freelist(stacka);
+}
+
 static int	only_five(t_Node *stacka, t_Node *stackb)
 {
 	if (stacka -> stacka_size == 5)
@@ -21,7 +31,7 @@ static int	only_five(t_Node *stacka, t_Node *stackb)
 		if (stackb -> data < stackb -> next -> data)
 		{
 			swap(stackb);
-			ft_printf("sa\n");
+			ft_printf("sb\n");
 		}
 		if (!isascending(stacka))
 			sort_three(&stacka);
@@ -29,7 +39,7 @@ static int	only_five(t_Node *stacka, t_Node *stackb)
 		push(&stackb, &stacka);
 		ft_printf("pa\n");
 		ft_printf("pa\n");
-		freelist(stacka); //
+		freelist(stacka);
 		return (0);
 	}
 	return (1);
@@ -41,23 +51,18 @@ static int	sort_small(t_Node *stacka, t_Node *stackb)
 	{
 		swap(stacka);
 		ft_printf("sa\n");
-		freelist(stacka); //
+		freelist(stacka);
 		return (0);
 	}
 	if (stacka -> stacka_size == 3)
 	{
 		sort_three(&stacka);
-		freelist(stacka); //
+		freelist(stacka);
 		return (0);
 	}
 	else if (stacka -> stacka_size == 4)
 	{
-		sort_five(&stacka, &stackb);
-		if (!isascending(stacka))
-			sort_three(&stacka);
-		push(&stackb, &stacka);
-		ft_printf("pa\n");
-		freelist(stacka); //
+		only_four(stacka, stackb);
 		return (0);
 	}
 	else if (only_five(stacka, stackb) == 0)
@@ -67,10 +72,8 @@ static int	sort_small(t_Node *stacka, t_Node *stackb)
 
 void	sort_all_big(t_Node *stacka, t_Node *stackb)
 {
-	t_Node	*tmp;
-
 	push(&stacka, &stackb);
-	ft_printf("pa\n");
+	ft_printf("pb\n");
 	push(&stacka, &stackb);
 	ft_printf("pb\n");
 	mixer(&stacka, &stackb);
@@ -78,19 +81,6 @@ void	sort_all_big(t_Node *stacka, t_Node *stackb)
 	{
 		push(&stackb, &stacka);
 		ft_printf("pa\n");
-	}
-	tmp = stacka;
-// note: if line 111 does not result in leaks keep it and remove 33, 41, 51, and 61
-// otherwise, keep lines 33, 41, 51, and 61 (freelist(stacka); //), you can remove line 113 (// freelist(stacka);).
-// note: do not forget to remove lines 86-94
-	while (tmp -> next != NULL) // delete
-	{
-		if (tmp -> data > tmp -> next-> data)
-		{
-			ft_printf("alert.....................\n");
-			break ;
-		}
-		tmp = tmp -> next;
 	}
 	freelist(stacka);
 }
@@ -109,9 +99,6 @@ int	main(int ac, char **av)
 	}
 	listsize(stacka, stackb);
 	if (sort_small(stacka, stackb) == 0)
-	{
-		// freelist(stacka);
 		return (0);
-	}
 	sort_all_big(stacka, stackb);
 }

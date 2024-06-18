@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   isvalid.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhelmy <mrhelmy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thelmy <thelmy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:54 by thelmy            #+#    #+#             */
-/*   Updated: 2024/06/18 02:40:04 by mrhelmy          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:57:30 by thelmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	bye(t_Node **stack)
 {
-	ft_printf("error\n");
+	write (2, "Error\n", 6);
 	freelist(*stack);
 	exit(1);
 }
@@ -39,7 +39,7 @@ void	integer_assign(t_Node **stack, t_Node **tmp, char*str)
 	}
 	else
 	{
-		ft_printf("error\n");
+		write (2, "Error\n", 6);
 		if (*stack)
 			freelist(*stack);
 		exit(1);
@@ -83,7 +83,7 @@ void	split_cheaker(char *str, t_Node **stack, t_Node **tmp)
 	{
 		if (!is_integer(splitted[i]))
 		{
-			ft_printf("error\n");
+			write (2, "Error\n", 6);
 			i = 0;
 			while (splitted[i])
 			{

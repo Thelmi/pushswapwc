@@ -10,7 +10,7 @@ SRC = cases_parse_one.c cases_parse_two.c isvalid.c list_helpers.c makemoves.c m
 
 OBJ := $(SRC:.c=.o)
 
-CFLAGS	= -fsanitize=address -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
